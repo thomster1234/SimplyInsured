@@ -50,7 +50,7 @@ public class KlantenController : ControllerBase
     {
         var klant = await _db.Klanten
             .Include(k => k.Opstalverzekeringen)
-            .FirstOrDefaultAsync(k => k.Id == id);
+            .FirstOrDefault(k => k.Id == id);
 
         return klant is not null ? Ok(klant) : NotFound();
     }
